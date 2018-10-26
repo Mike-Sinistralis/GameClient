@@ -1,0 +1,27 @@
+{
+  "plugins": [
+    "@babel/transform-strict-mode",
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        ["@babel/env", {
+          "targets": {
+            "browsers": ["last 2 versions"]
+          },
+          "modules": false,
+        }]
+      ],
+    },
+    "development": {
+      "presets": [
+        ["@babel/env", {
+          "targets": {
+            "browsers": ["last 2 versions"]
+          },
+          "modules": false,
+        }]
+      ],
+    },
+  },
+}

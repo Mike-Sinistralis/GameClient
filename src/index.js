@@ -1,16 +1,29 @@
-import io from 'socket.io-client';
+import Phaser from 'phaser';
 
-const socket = io('http://localhost:3000');
-socket.on('connect', function(){
+let game;
+let config;
 
-});
+function preload ()
+{
+}
 
-socket.on('test', function(data){
-  console.log(data);
-});
+function create ()
+{
+}
 
-socket.on('disconnect', function(){
+function update ()
+{
+}
 
-});
+config = {
+  type: Phaser.AUTO,
+  scene: {
+      preload,
+      create,
+      update,
+  }
+};
 
-socket.emit('echo', 'hi');
+game = new Phaser.Game(config);
+console.log(game);
+debugger;
