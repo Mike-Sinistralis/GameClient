@@ -1,27 +1,31 @@
 {
+  "presets": [
+    "@babel/react"
+  ],
   "plugins": [
-    "@babel/transform-strict-mode",
+    "@babel/proposal-object-rest-spread"
   ],
   "env": {
     "production": {
       "presets": [
         ["@babel/env", {
           "targets": {
+            "ie": 11,
             "browsers": ["last 2 versions"]
           },
-          "modules": false,
+          "modules": false
         }]
-      ],
+      ]
     },
     "development": {
       "presets": [
         ["@babel/env", {
           "targets": {
-            "browsers": ["last 2 versions"]
+            "browsers": "last 2 Chrome versions"
           },
-          "modules": false,
+          "modules": false
         }]
-      ],
-    },
-  },
+      ]
+    }
+  }
 }

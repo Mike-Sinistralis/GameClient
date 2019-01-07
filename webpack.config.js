@@ -5,7 +5,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -13,18 +13,29 @@ const config = {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
     ]
   },
   resolve: {
-    modules: ['./src', './node_modules'],
+    modules: [path.join(__dirname, './src'), 'node_modules'],
     extensions: [
       '.js',
+      '.jsx',
+      '.scss',
+      '.css',
     ],
   },
   entry: {
-    vendor: ['phaser', 'socket.io-client'],
-    main: path.join(__dirname, './src/index.js'),
+    main: path.join(__dirname, './src/index.jsx'),
   },
   output: {
     path: path.join(__dirname, './dist'),
@@ -42,7 +53,6 @@ const config = {
           enforce: true
         },
       },
-      chunks: 'all',
     },
     runtimeChunk: true
   },
